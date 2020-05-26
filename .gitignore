@@ -113,3 +113,6 @@ media/
 
 # pycharm environment
 .idea/
+
+#Gerados pelo collectstatic
+staticfiles/

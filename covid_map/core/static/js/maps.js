@@ -1,5 +1,15 @@
+dataMapPiauiConfimados = []
+dataMapPiauiMortes = []
+dados_sesapi.forEach(element => {
+    if (element.city != 'PIAUÍ'){
+        dataMapPiauiConfimados.push([element.codigo_ibge, parseInt(element.confirmed)])
+        dataMapPiauiMortes.push([element.codigo_ibge, parseInt(element.deaths)])
+    }
+});
+
+
 Highcharts.getJSON('https://raw.githubusercontent.com/IFPiaui/covid19-map/master/static_jsons/malha.geojson', function (geojson) {
-    Highcharts.mapChart('mapaPiaui', {
+    Highcharts.mapChart('mapaPiauiConfirmados', {
         chart: {
             map: geojson
         },
@@ -23,7 +33,7 @@ Highcharts.getJSON('https://raw.githubusercontent.com/IFPiaui/covid19-map/master
         },
 
         series: [{
-            data: dataMapPiaui,
+            data: dataMapPiauiConfimados,
             keys: ['codarea', 'value'],
             joinBy: 'codarea',
             name: 'Confirmados',
@@ -54,6 +64,65 @@ Highcharts.getJSON('https://raw.githubusercontent.com/IFPiaui/covid19-map/master
 
     });
 });
+
+
+Highcharts.getJSON('https://raw.githubusercontent.com/IFPiaui/covid19-map/master/static_jsons/malha.geojson', function (geojson) {
+    Highcharts.mapChart('mapaPiauiMortes', {
+        chart: {
+            map: geojson
+        },
+
+        title: {
+            text: 'Mortes por COVID-19 no Piauí'
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0,
+            stops: [[0, '#ffebee'], [0.001, '#ffcdd2'],[0.018, '#ef9a9a'], [0.1, '#e57373'],
+            [0.15, '#ef5350'], [0.2, '#f44336'], [0.4, '#e53935'], [0.6, '#d32f2f'], [0.8, '#c62828'],
+            [1, '#b71c1c']],
+        },
+
+        series: [{
+            data: dataMapPiauiMortes,
+            keys: ['codarea', 'value'],
+            joinBy: 'codarea',
+            name: 'Mortes',
+            states: {
+                hover: {
+                    color: '#a4edba'
+                }
+            },
+            dataLabels: {
+                format: '{point.name}',
+            }
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        align: 'center',
+                        verticalAlign: 'bottom',
+                        layout: 'horizontal'
+                    }
+                }
+            }]
+        }
+
+    });
+});
+
 
 
 Highcharts.mapChart('mapaBrasil', {

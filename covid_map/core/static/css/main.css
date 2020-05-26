@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
-
 :root {
   --branco: #fff;
   --preto: #212121;
   --verde: #009688;
   --vermelho: #f44336;
+  --roxo: #673ab7;
+  --laranja: #ff9800;
 }
 
 * {
@@ -37,6 +37,22 @@ button {
 
 .bg-vermelho {
   background-color: var(--vermelho);
+}
+
+.bg-roxo {
+  background-color: var(--roxo);
+}
+
+.bg-laranja {
+  background-color: var(--laranja);
+}
+
+.texto-laranja {
+  color: var(--laranja);
+}
+
+.texto-roxo {
+  color: var(--roxo);
 }
 
 .texto-verde {
@@ -126,6 +142,47 @@ button {
   margin: 8px;
 }
 
+.selecao-abas {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.selecao-abas h3 {
+  padding-left: 8px;
+}
+
+.abas {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.abas .grupo-aba {
+  margin: 8px;
+}
+
+.botao-aba {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  padding: 10px 15px;
+  background-color: transparent;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-mapa {
+  min-width: 200px;
+  max-height: 1000px;
+  margin-top: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.mapa {
+  height: 800px;
+}
+
 .card {
   min-width: 200px;
   max-height: 600px;
@@ -151,9 +208,6 @@ button {
 
 footer.rodape {
   margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .colaboradores {
@@ -174,15 +228,20 @@ footer.rodape {
 .colaboradores-conteudo {
   padding: 25px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .colaborador {
   display: flex;
   flex-direction: row;
   text-decoration: none;
-  color: black;
-  margin: 10px;
+  color: var(--preto);
+  margin: 12px;
+}
+
+.colaborador:hover {
+  filter: brightness(80%);
 }
 
 .colaborador img {
@@ -202,7 +261,7 @@ footer.rodape {
 }
 
 .colaboradores-rodape {
-  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,27 +270,29 @@ footer.rodape {
 
 .botao-github {
   height: 100%;
-  width: 100%;
-  border-radius: 6px;
-  background-color: #515151;
-  color: #fff;
+  width: 250px;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: rgb(51, 51, 51, 0.9);
+  color: var(--branco);
   text-decoration: none;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .botao-github:hover {
-  filter: brightness(90%);
+  filter: brightness(80%);
 }
 
 .conteudo-botao-github {
-  padding: 10px;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-[componente-brasil] {
-  display: none;
+.conteudo-botao-github p {
+  margin-left: 10px;
 }
 
 @media (max-width: 630px) {
@@ -306,6 +367,14 @@ footer.rodape {
   .grupo-aba {
     max-height: 20%;
   }
+
+  .card-mapa {
+    max-height: 600px;
+  }
+
+  .mapa {
+    height: 500px;
+  }
 }
 
 @media (max-width: 420px) {
@@ -327,6 +396,11 @@ footer.rodape {
   }
 
   .container-cards-dados {
+    display: flex;
+    justify-content: center;
+  }
+
+  .colaboradores-conteudo {
     display: flex;
     justify-content: center;
   }
