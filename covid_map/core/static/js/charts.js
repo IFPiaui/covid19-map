@@ -18,6 +18,7 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        responsive: true,
         scales: {
             xAxes: [{
                 display: true,
@@ -58,6 +59,7 @@ var myChart2 = new Chart(ctx2, {
         }]
     },
     options: {
+        responsive: true,
         scales: {
             xAxes: [{
                 display: true,
@@ -98,6 +100,7 @@ var myChart3 = new Chart(ctx3, {
         }]
     },
     options: {
+        responsive: true,
         scales: {
             xAxes: [{
                 display: true,
@@ -139,6 +142,7 @@ var myChart4 = new Chart(ctx4, {
     },
     options: {
         scales: {
+            responsive: true,
             xAxes: [{
                 display: true,
                 scaleLabel: {
@@ -179,6 +183,7 @@ var myChart5 = new Chart(ctx5, {
     },
     options: {
         scales: {
+            responsive: true,
             xAxes: [{
                 display: true,
                 scaleLabel: {
@@ -218,6 +223,7 @@ var myChart6 = new Chart(ctx6, {
         }]
     },
     options: {
+        responsive: true,
         scales: {
             xAxes: [{
                 display: true,
@@ -253,6 +259,7 @@ var grafico_comorbidades = new Chart(elemento_comorbidades, {
         }]
     },
     options: {
+        responsive: true,
         scales: {
             xAxes: [{
                 display: false,
@@ -269,5 +276,47 @@ var grafico_comorbidades = new Chart(elemento_comorbidades, {
                 }
             }]
         }
+    }
+});
+
+
+var elemento_confSexo = document.getElementById('confSexo').getContext('2d');
+
+var grafico_confSexo = new Chart(elemento_confSexo, {
+    type: 'pie',
+    data: {
+        labels: ['Masculino', 'Feminino'],
+        datasets: [{
+            label: 'Confirmados por sexo',
+            data: [confMale, confFeminine],
+            backgroundColor: [
+                '#2196f3',
+                '#e91e63'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+    }
+});
+
+
+var elemento_obtSexo = document.getElementById('obtSexo').getContext('2d');
+
+var grafico_obtSexo = new Chart(elemento_obtSexo, {
+    type: 'pie',
+    data: {
+        labels: ['Masculino', 'Feminino'],
+        datasets: [{
+            label: 'Óbitos por sexo',
+            data: [obtMale, obtFeminine],
+            backgroundColor: [
+                '#2196f3',
+                '#e91e63'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
     }
 });

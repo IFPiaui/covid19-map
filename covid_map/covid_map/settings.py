@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'pp(zug6c&dd4&@7opt0mqu&yid2oiky*9(&l=nvaluj=*xq9kt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['covid19-map-pi.herokuapp.com', '127.0.0.1']
 

@@ -95,7 +95,8 @@
     <div class="mapa" id="mapaBrasil"></div>
     <footer class="card-rodape">
       <p>
-        Highcharts
+        Fonte: brasil.io. <br>
+        Framework: Highcharts.
       </p>
     </footer>
   </div>
@@ -107,7 +108,8 @@
     <div class="mapa" id="mapaPiauiConfirmados"></div>
     <footer class="card-rodape">
       <p>
-        Highcharts
+        Fonte: SESAPI.
+        Framework: Highcharts.
       </p>
     </footer>
   </div>
@@ -119,7 +121,8 @@
     <div class="mapa" id="mapaPiauiMortes"></div>
     <footer class="card-rodape">
       <p>
-        Highcharts
+        Fonte: SESAPI.
+        Framework: Highcharts.
       </p>
     </footer>
   </div>
@@ -154,6 +157,7 @@
         </button>
         <div class="barrinha-horizontal bg-laranja" style="display: none;"></div>
       </div>
+      <!-- Gráfico de  casos e mortes por sexo -->
     </div>
   </div>
 
@@ -232,7 +236,7 @@
     </div>
     <footer class="card-rodape">
       <p>
-        Fonte: Brasil.io
+        Fonte: SESAPI.
       </p>
     </footer>
   </div>
@@ -246,7 +250,7 @@
     </div>
     <footer class="card-rodape">
       <p>
-        Fonte: Brasil.io
+        Fonte: SESAPI.
       </p>
     </footer>
   </div>
@@ -260,14 +264,14 @@
     </div>
     <footer class="card-rodape">
       <p>
-        Fonte: Brasil.io
+        Fonte: SESAPI.
       </p>
     </footer>
   </div>
 
   <div id="grafico-pi-doencas" class="card" componente-piaui>
     <header class="card-cabecalho">
-      <h3 class="card-titulo">Histórico de doenças em pacientes falecidos</h3>
+      <h3 class="card-titulo">Comorbidades</h3>
     </header>
     <div class="card-corpo">
       <canvas id="comorbidades" style="display: block; width: 100px; height: 45px;"></canvas>
@@ -447,5 +451,11 @@
   labels_comorbidades.push('{{ comorbidade }}')
   num_comorbidades.push({{ quantidade }})
   {% endfor %}
+</script>
+<script>
+  var confMale = {{confMale}}
+  var confFeminine = {{confFeminine}}
+  var obtMale = {{obtMale}}
+  var obtFeminine = {{obtFeminine}}
 </script>
 {% endblock charts %}

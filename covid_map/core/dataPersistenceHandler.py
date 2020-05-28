@@ -126,10 +126,12 @@ def fetchData():
     cabecalhoDaTabelaAltas, dic_Altas = get_dict_dados(id_='921393660')
     cabecalhoDaTabelaConfSexo, dic_ConfSexo = get_dict_dados(id_='0')
     cabecalhoDaTabelaObtSexo, dic_ObtSexo = get_dict_dados(id_='953543508')
+    cabecalhoDaTabelafaixaEtaria, dic_faixaEtaria = get_dict_dados(id_='1402178422')
 
     emptyCityDictionaries = createEmptyCityInfoDictionary()
     dadosDeTodasAsCidades = []
-    
+    dic_ConfSexo = list(dic_ConfSexo)
+    dic_ObtSexo = list(dic_ObtSexo)
     # Transformar os dados em CSV em dados em JSON
     for municipio in dic_DadosPorMunicipio:
         # vou iterando. Para cada registro, atualizo o registro correspondente em
@@ -142,10 +144,10 @@ def fetchData():
                     "population": municipio[uglifyHeaderItem('population')],
                     "discards": list(dic_Descartados)[0]['Descartados'], 
                     "cured": list(dic_Altas)[0]['Altas Médicas'],
-                    "confMale": list(dic_ConfSexo)[0]['Quantidade'],
-                    "confFeminine": list(dic_ConfSexo)[1]['Quantidade'],
-                    "obtMale": list(dic_ObtSexo)[0]['Quantidade'],
-                    "obtFeminine": list(dic_ObtSexo)[1]['Quantidade']}
+                    "confMale": dic_ConfSexo[0]['Quantidade'],
+                    "confFeminine": dic_ConfSexo[1]['Quantidade'],
+                    "obtMale": dic_ObtSexo[0]['Quantidade'],
+                    "obtFeminine": dic_ObtSexo[1]['Quantidade']}
             break
         cep = municipio['CEP']
         for item in municipio.keys():
@@ -157,6 +159,17 @@ def fetchData():
                     for cep, cidade in zip(cepHashMap.keys(), cepHashMap.values()):
                         if compara_cidades(cidade['nome'], municipio['Município']):
                             emptyCityDictionaries.get(cep)[beautifyHeaderItem(item)] = municipio[item]                    
+    
+    faixaEtaria = {}
+    for item in dic_faixaEtaria:
+        if item['Faixa Etária'] == 'TOTAL': break
+        faixaEtaria[item['Faixa Etária']] = {
+            'confirmados': item['Confirmados'],
+            'percentualConf': item['Percentual C.'],
+            'obitos': item['Óbitos'],
+            'percentualObt': item['Percentual O.']
+        }
+    piaui['faixaEtaria'] = faixaEtaria
         
     for item in emptyCityDictionaries.values():
         dadosDeTodasAsCidades.append(item)
