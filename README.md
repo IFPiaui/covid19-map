@@ -16,3 +16,5 @@ Projeto para criar um site(e possivelmente um aplicativo mobile) para visualizar
 
 Veja a lista de [colaboradores](https://github.com/IFPiaui/covid19-map/graphs/contributors) que participam desse projeto.
 
+## Licença
+[GNU Lesser General Public License v3.0](https://choosealicense.com/licenses/lgpl-3.0/)
