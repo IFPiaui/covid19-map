@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Teste</title>
-    <link rel="stylesheet" href="mapa.css?option=dontcache5">
+    <link rel="stylesheet" href="mapa.css?option=dontcache9">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
@@ -15,7 +15,7 @@
 
 <body>
     <div id="container" class="col-12">
-        <div class="row mt-4 mb-4 justify-content-center">
+        <div class="row mt-5 mb-4 justify-content-center">
             <div class="col-10">
                 <h1 class="text-center">Covid-19 no Piauí</h1>
             </div>
@@ -27,8 +27,8 @@
                         <div class="card-title">
                             <h5 class="p-0 m-0">Confirmados:</h5>
                         </div>
-                        <div class="card-text">
-                            <p id="casos_confirmados" class="m-0"></p>
+                        <div id="casos_confirmados" class="card-text">
+                            <p class="display-placeholder"></p>
                         </div>
                     </div>
                 </div>
@@ -39,8 +39,8 @@
                         <div class="card-title">
                             <h5 class="p-0 m-0">Altas:</h5>
                         </div>
-                        <div class="card-text">
-                            <p id="altas_medicas" class="m-0"></p>
+                        <div id="altas_medicas" class="card-text">
+                            <p class="display-placeholder"></p>
                         </div>
                     </div>
                 </div>
@@ -51,8 +51,8 @@
                         <div class="card-title">
                             <h5 class="p-0 m-0">Mortes:</h5>
                         </div>
-                        <div class="card-text">
-                            <p id="mortes" class="m-0"></p>
+                        <div id="obitos" class="card-text">
+                            <p class="display-placeholder"></p>
                         </div>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
                         <div class="card-title">
                             <h5 class="p-0 m-0">Mortalidade:</h5>
                         </div>
-                        <div class="card-text">
-                            <p id="mortalidade" class="m-0"></p>
+                        <div id="mortalidade" class="card-text">
+                            <p class="display-placeholder"></p>
                         </div>
                     </div>
                 </div>
@@ -77,15 +77,33 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center mt-2 mb-5">
+        <div class="row justify-content-center mt-2 mb-3">
             <button type="button" id="btn-mapa-de-calor" class="col-8 col-sm-5 p-1 m-3 bt btn-primary text-center">Mostrar Mapa de Calor</button>
+        </div>
+        <div class="row justify-content-center mb-2">
+            <div class="col-sm-10">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5 id="titulo-grafico-obitos" class="p-0 m-0">Número de óbitos por semana epidemiológica</h5>
+                        </div>
+                        <div id="mortalidade" class="card-text">
+                            <canvas id="grafico_obitos" width="200" height="125"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-0 mb-5">
+            <button type="button" id="btn-obitos-log" class="col-8 col-sm-5 p-1 m-3 bt btn-primary text-center">Escala logarítimica</button>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="leaflet-heat.js"></script>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="main.js?v=9dasd094d0a9d0a"></script>
 </body>
 
 </html>
