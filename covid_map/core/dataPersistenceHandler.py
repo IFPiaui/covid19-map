@@ -14,6 +14,7 @@ from datetime import date as dt
 from .cepHashMap import cepHashMap
 from unicodedata import normalize
 import difflib
+import re
 ##############################
 # INSERT PATH DIR
 ###
@@ -119,7 +120,7 @@ def createEmptyCityInfoDictionary():
 ###
 
 
-def fetchData():
+def fetchData(data_atualizacao):
     
     cabecalhoDaTabelaMunicipios, dic_DadosPorMunicipio = get_dict_dados(id_='532454257')
     cabecalhoDaTabelaDescartados, dic_Descartados = get_dict_dados(id_='1183637221')
@@ -147,7 +148,8 @@ def fetchData():
                     "confMale": dic_ConfSexo[0]['Quantidade'],
                     "confFeminine": dic_ConfSexo[1]['Quantidade'],
                     "obtMale": dic_ObtSexo[0]['Quantidade'],
-                    "obtFeminine": dic_ObtSexo[1]['Quantidade']}
+                    "obtFeminine": dic_ObtSexo[1]['Quantidade'],
+                    "data_atualizacao": data_atualizacao}
             break
         cep = municipio['CEP']
         for item in municipio.keys():
@@ -211,33 +213,11 @@ def loadLocalData():
 # UPDATES
 ###
 def checkUpdates():
-    req = request.urlopen(
-        'https://docs.google.com/spreadsheets/d/1b-GkDhhxJIwWcA6tk3z4eX58f-f1w2TA2f2XrI4XB1w/edit#gid=1514947706')
-
-    DateOfUpdateText = ''
-    for i in req:
-        DateOfUpdateText = DateOfUpdateText + i.decode('utf-8')
-
-    startPosition = DateOfUpdateText.find('Atualização')
-    endPosition = startPosition + 32
-
-    dateAndTime = DateOfUpdateText[startPosition:endPosition]
-
-    dayStartPosition = startPosition + 13
-    dayEndPosition = dayStartPosition + 10
-    date = DateOfUpdateText[dayStartPosition:dayEndPosition]
-    dashSeparatedDate = date.replace('/', '-')
-
-    year = dashSeparatedDate[6:10]
-    month = dashSeparatedDate[3:5]
-    day = dashSeparatedDate[0:2]
-
-    isoFormattedDate = year + '-' + month + '-' + day
-
-    hourStartPosition = dayEndPosition + 4
-    hourEndPosition = hourStartPosition + 5
-    hour = DateOfUpdateText[hourStartPosition:hourEndPosition]
-    dashSeparatedHour = hour.replace('h', '-')
+    cabecalhoAtualizacao, dic_atualizacao = get_dict_dados(id_='1514947706')
+    data_atualizacao = list(dic_atualizacao)[0]['Data']
+    p = re.compile(r'\d+')
+    datas = p.findall(data_atualizacao)
+    isoFormattedDate = datas[2] + '-' + datas[1] + '-' + datas[0]
 
     lastUpdate = dt.fromisoformat(isoFormattedDate)
 
@@ -253,7 +233,7 @@ def checkUpdates():
     # se o lastUpdate for maior que o arquivo local, atualiza
     # comparar lastUpdate com o nome do arquivo local
     if (localFileCreationDate - lastUpdate).days != 0:
-        data = fetchData()
+        data = fetchData(data_atualizacao)
         saveData(data, data_path + '/' + isoFormattedDate + '.json')
         return True
     else:
