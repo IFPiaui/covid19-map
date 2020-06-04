@@ -338,7 +338,12 @@
         <div class="card-cabecalho">
           <h3 class="card-titulo">Confirmados por sexo</h3>
         </div>
-        <div class="card-pizza-corpo"></div>
+        <div class="card-pizza-corpo">
+          <canvas
+          id="confSexo"
+          style="display: block; width: 70px; height: 55px;"
+          ></canvas>
+        </div>
         <div class="card-pizza-rodape">
           <p>Fonte: Sesapi</p>
         </div>
@@ -348,7 +353,12 @@
         <div class="card-cabecalho">
           <h3 class="card-titulo">Mortes por sexo</h3>
         </div>
-        <div class="card-pizza-corpo"></div>
+        <div class="card-pizza-corpo">
+          <canvas
+          id="obtSexo"
+          style="display: block; width: 70px; height: 55px;"
+          ></canvas>
+        </div>
         <div class="card-pizza-rodape">
           <p>Fonte: Sesapi</p>
         </div>
@@ -498,7 +508,7 @@
 
 {% endblock content %} {% block maps %}
 <script>
-  var dados_sesapi = JSON.parse("{{ dados_sesapi | safe }}");
+  var dados_sesapi = JSON.parse('{{ dados_sesapi | safe }}');
 </script>
 
 <script>
