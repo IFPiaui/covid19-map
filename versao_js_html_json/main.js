@@ -1,11 +1,9 @@
-import { Dados } from './Dados/Dados.js';
-import { Display } from './Displays/Display.js';
 import { setDisplayAltasMedicas } from './Displays/AltasMedicas.display.js';
 import { setDisplayConfirmados } from './Displays/Confirmados.display.js';
-import { setDisplayMortalidade } from './Displays/Mortalidade.display.js';
+import { setDisplayLetalidade } from './Displays/Letalidade.display.js';
 import { setDisplayObitos } from './Displays/Obitos.display.js';
-import { initBaseMap } from './Mapas/mapaBase.js';
-import { initMalhaPrincipal } from './Mapas/malha.js'
+import { initBaseMap } from './Mapas/Base.mapa.js';
+import { initMalhaPrincipalPromise } from './Mapas/Confirmados.mapa.js'
 import { renderHeatMap } from './Mapas/heatMap.js'
 import { initGraficoObitos, initGraficoObitosLog } from './Gráficos/Obitos.grafico.js';
 import { start as startSerieTemporal } from './Dados/SerieTemporal.dados.js';
@@ -13,9 +11,9 @@ import { start as startSerieTemporal } from './Dados/SerieTemporal.dados.js';
 setDisplayAltasMedicas();
 setDisplayConfirmados();
 setDisplayObitos();
-setDisplayMortalidade();
+setDisplayLetalidade();
 initBaseMap();
-initMalhaPrincipal();
+initMalhaPrincipalPromise();
 initGraficoObitos('grafico_obitos');
 startSerieTemporal();
 

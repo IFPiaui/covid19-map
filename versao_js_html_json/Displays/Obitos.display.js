@@ -1,13 +1,10 @@
 import { Display } from './Display.js';
-import { Dados } from '../Dados/Dados.js';
+import { obitos } from '../Dados/Obitos.dados.js';
 
-const setDisplayObitos = () => {
+const setDisplayObitos = async() => {
     window.displayObitos = new Display('obitos');
-    if (Dados.obitos) {
-        window.displayObitos.init(Dados.obitos);
-    } else {
-        setTimeout(setDisplayObitos, 5);
-    }
+    let info = await obitos;
+    window.displayObitos.init(info);
 }
 
 export { setDisplayObitos };

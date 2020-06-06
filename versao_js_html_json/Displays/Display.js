@@ -5,7 +5,7 @@ class Display {
     }
 
     init(value) {
-        document.getElementById(this.id).innerHTML = '<p class=\'m-0 texto-display\'>' + value + '</p>';
+        document.getElementById(this.id).innerHTML = `<p class='m-0 texto-display'>${value}</p>`;
     }
 }
 

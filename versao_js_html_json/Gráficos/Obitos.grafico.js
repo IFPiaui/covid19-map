@@ -14,6 +14,8 @@ const create = (id) => {
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             layout: {
                 padding: {
                     left: 0,
@@ -67,6 +69,8 @@ const createLogarithmic = (id) => {
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             layout: {
                 padding: {
                     left: 0,
@@ -90,11 +94,11 @@ const createLogarithmic = (id) => {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: '# de óbitos'
+                        labelString: '# de óbitos (log10)'
                     },
                     ticks: {
                         min: 0,
-                        max: 2.5,
+                        max: 3.5,
                         beginAtZero: true,
                         stepSize: .5
                     }

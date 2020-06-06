@@ -1,13 +1,10 @@
 import { Display } from './Display.js';
-import { Dados } from '../Dados/Dados.js';
+import { confirmados } from '../Dados/Confirmados.dados.js';
 
-const setDisplayConfirmados = () => {
+const setDisplayConfirmados = async() => {
     window.displayConfirmados = new Display('casos_confirmados');
-    if (Dados.confirmados) {
-        window.displayConfirmados.init(Dados.confirmados);
-    } else {
-        setTimeout(setDisplayConfirmados, 5);
-    }
+    let info = await confirmados;
+    window.displayConfirmados.init(info);
 }
 
 export { setDisplayConfirmados };

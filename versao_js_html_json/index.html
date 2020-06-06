@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Teste</title>
-    <link rel="stylesheet" href="mapa.css?option=dontcache9">
+    <link rel="stylesheet" href="mapa.css?option=dontcache13">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
@@ -49,7 +49,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">
-                            <h5 class="p-0 m-0">Mortes:</h5>
+                            <h5 class="p-0 m-0">Óbitos:</h5>
                         </div>
                         <div id="obitos" class="card-text">
                             <p class="display-placeholder"></p>
@@ -61,24 +61,34 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">
-                            <h5 class="p-0 m-0">Mortalidade:</h5>
+                            <h5 class="p-0 m-0">Letalidade:</h5>
                         </div>
-                        <div id="mortalidade" class="card-text">
+                        <div id="letalidade" class="card-text">
                             <p class="display-placeholder"></p>
                         </div>
                     </div>
                 </div>
             </div>
+            <small class="text-muted"><em>Fonte: Secretaria de Estado da Saúde do Piauí.</em></small>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-3">
             <div class="col-sm-10 mt-3">
-                <small><em>Passe o mouse ou clique sobre o mapa para ver os dados.</em></small>
-                <div id="map">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>Mapa da distribuição dos casos confirmados pelos municípios do Piauí</h5>
+                        </div>
+                        <div class="card-text">
+                            <div id="map">
+                            </div>
+                            <small class="text-muted"><em>Fonte: Secretaria de Estado da Saúde do Piauí.</em></small>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="button" id="btn-mapa-de-calor" class="col-8 col-sm-5 p-1 mb-1 bt btn-primary text-center">Mostrar Mapa de Calor</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center mt-2 mb-3">
-            <button type="button" id="btn-mapa-de-calor" class="col-8 col-sm-5 p-1 m-3 bt btn-primary text-center">Mostrar Mapa de Calor</button>
         </div>
         <div class="row justify-content-center mb-2">
             <div class="col-sm-10">
@@ -87,15 +97,19 @@
                         <div class="card-title">
                             <h5 id="titulo-grafico-obitos" class="p-0 m-0">Número de óbitos por semana epidemiológica</h5>
                         </div>
-                        <div id="mortalidade" class="card-text">
-                            <canvas id="grafico_obitos" width="200" height="125"></canvas>
+                        <div class="card-text">
+                            <canvas id="grafico_obitos" width="400px" height="350px"></canvas>
                         </div>
+                        <small class="text-muted"><em>Fonte: Secretaria de Estado da Saúde do Piauí.</em></small>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="button" id="btn-obitos-log" class="col-8 col-sm-5 p-1 mb-1 bt btn-primary text-center">Escala logarítimica</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row justify-content-center mt-0 mb-5">
-            <button type="button" id="btn-obitos-log" class="col-8 col-sm-5 p-1 m-3 bt btn-primary text-center">Escala logarítimica</button>
+
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

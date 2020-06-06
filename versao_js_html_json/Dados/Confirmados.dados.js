@@ -1,24 +1,12 @@
-import { Dados } from './Dados.js';
+import { initDadosAmplos } from './DadosAmplos.dados.js';
 
-const initConfirmados = () => {
-    set();
-}
+const confirmados = new Promise(async(resolve, reject) => {
+    const dadosAmplos = await initDadosAmplos;
+    let confirmados = 0;
+    dadosAmplos.map((el) => {
+        confirmados = confirmados + Number(el.confirmados);
+    });
+    resolve(confirmados);
+});
 
-const setDados = () => {
-    if (typeof(Dados.dadosAmplos) === 'object') {
-        let confirmados = 0;
-        let dados = Dados.dadosAmplos;
-        dados.map((el) => {
-            confirmados = confirmados + Number(el.confirmados);
-        })
-        Dados.confirmados = confirmados;
-    } else {
-        setTimeout(setDados, 5);
-    }
-}
-
-const set = () => {
-    setDados();
-}
-
-export { initConfirmados };
+export { confirmados };
