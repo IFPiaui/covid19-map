@@ -236,20 +236,26 @@ const abaGraficoPiDoencas = document.querySelector("#aba-grafico-pi-doencas");
 const abaGraficoPiNovosCasos = document.querySelector(
   "#aba-grafico-pi-novos-casos"
 );
+const abaGraficoPiSexo = document.querySelector("#aba-grafico-pi-sexo");
 const barraGraficoPiConfirmados = abaGraficoPiConfirmados.nextElementSibling;
 const barraGraficoPiObitos = abaGraficoPiObitos.nextElementSibling;
 const barraGraficoPiDoencas = abaGraficoPiDoencas.nextElementSibling;
 const barraGraficoPiNovosCasos = abaGraficoPiNovosCasos.nextElementSibling;
+const barraGraficoPiSexo = abaGraficoPiSexo.nextElementSibling;
 const graficoPiConfirmados = document.querySelector("#grafico-pi-confirmados");
 const graficoPiObitos = document.querySelector("#grafico-pi-obitos");
 const graficoPiDoencas = document.querySelector("#grafico-pi-doencas");
 const graficoPiNovosCasos = document.querySelector("#grafico-pi-novos-casos");
+const graficoPiSexo = document.querySelector(".container-graficos-pizza");
+// const graficoPiSexoConfirmados = document.querySelector("#grafico-pi-sexo-confirmados");
+// const graficoPiSexoMortes = document.querySelector("#grafico-pi-sexo-mortes");
 
 const graficosPi = [
   graficoPiConfirmados,
   graficoPiDoencas,
   graficoPiNovosCasos,
   graficoPiObitos,
+  graficoPiSexo,
 ];
 
 const barrasGraficoPi = [
@@ -257,6 +263,7 @@ const barrasGraficoPi = [
   barraGraficoPiDoencas,
   barraGraficoPiNovosCasos,
   barraGraficoPiObitos,
+  barraGraficoPiSexo,
 ];
 
 abaGraficoPiConfirmados.addEventListener("click", () => {
@@ -320,6 +327,23 @@ abaGraficoPiNovosCasos.addEventListener("click", () => {
   tratarTransicaoDeExibicaoElementos(
     barrasGraficoPi,
     barraGraficoPiNovosCasos,
+    componentesPiauiDefault,
+    componentesPiauiNaoDefault
+  );
+
+  atualizarAba(componentesPiauiDefault, componentesPiauiNaoDefault);
+});
+
+abaGraficoPiSexo.addEventListener("click", () => {
+  tratarTransicaoDeExibicaoElementos(
+    graficosPi,
+    graficoPiSexo,
+    componentesPiauiDefault,
+    componentesPiauiNaoDefault
+  );
+  tratarTransicaoDeExibicaoElementos(
+    barrasGraficoPi,
+    barraGraficoPiSexo,
     componentesPiauiDefault,
     componentesPiauiNaoDefault
   );

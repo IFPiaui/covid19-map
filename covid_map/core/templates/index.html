@@ -1,8 +1,6 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <header class="cabecalho">
-
   <div class="container-centralizado conteudo-cabecalho">
     <h2>COVID-19</h2>
     <div class="secao-menu">
@@ -19,17 +17,18 @@
           </div>
           <div class="grupo-aba">
             <button id="aba-brasil" class="botao-cabecalho">Brasil</button>
-            <div class="barrinha-horizontal bg-verde" style="display: none;"></div>
+            <div
+              class="barrinha-horizontal bg-verde"
+              style="display: none;"
+            ></div>
           </div>
         </ul>
       </nav>
     </div>
   </div>
-
 </header>
 
 <section class="container-centralizado container-cards-dados">
-
   <div class="card-dados" componente-brasil default>
     <h3>Casos Confirmados</h3>
     <h2 class="texto-verde">{{soma_casos_brasil}}</h2>
@@ -65,11 +64,9 @@
     <h2 class="texto-vermelho">{{soma_obitos_por_cidade}}</h2>
     <div class="barrinha-horizontal bg-vermelho"></div>
   </div>
-  
 </section>
 
 <section id="container-mapas" class="container-centralizado">
-
   <div class="selecao-abas" componente-piaui default>
     <h3>Opções de Mapa</h3>
     <div class="abas">
@@ -83,7 +80,10 @@
         <button id="aba-mapa-pi-obitos" class="botao-aba">
           <p>Óbitos</p>
         </button>
-        <div class="barrinha-horizontal bg-vermelho" style="display: none;"></div>
+        <div
+          class="barrinha-horizontal bg-vermelho"
+          style="display: none;"
+        ></div>
       </div>
     </div>
   </div>
@@ -95,7 +95,9 @@
     <div class="mapa" id="mapaBrasil"></div>
     <footer class="card-rodape">
       <p>
-        Fonte: brasil.io. <br>
+        Fonte: Brasil.io.
+      </p>
+      <p>
         Framework: Highcharts.
       </p>
     </footer>
@@ -107,10 +109,8 @@
     </header>
     <div class="mapa" id="mapaPiauiConfirmados"></div>
     <footer class="card-rodape">
-      <p>
-        Fonte: SESAPI.
-        Framework: Highcharts.
-      </p>
+      <p>Fonte: SESAPI.</p>
+      <p>Framework: Highcharts.</p>
     </footer>
   </div>
 
@@ -120,16 +120,13 @@
     </header>
     <div class="mapa" id="mapaPiauiMortes"></div>
     <footer class="card-rodape">
-      <p>
-        Fonte: SESAPI.
-        Framework: Highcharts.
-      </p>
+      <p>Fonte: SESAPI.</p>
+      <p>Framework: Highcharts.</p>
     </footer>
   </div>
 </section>
 
 <section id="container-graficos" class="container-centralizado">
-
   <div class="selecao-abas" componente-piaui default>
     <h3>Opções de Gráficos</h3>
     <div class="abas">
@@ -143,7 +140,10 @@
         <button id="aba-grafico-pi-obitos" class="botao-aba">
           <p>Óbitos</p>
         </button>
-        <div class="barrinha-horizontal bg-vermelho" style="display: none;"></div>
+        <div
+          class="barrinha-horizontal bg-vermelho"
+          style="display: none;"
+        ></div>
       </div>
       <div class="grupo-aba">
         <button id="aba-grafico-pi-novos-casos" class="botao-aba">
@@ -155,9 +155,21 @@
         <button id="aba-grafico-pi-doencas" class="botao-aba">
           <p>Doenças</p>
         </button>
-        <div class="barrinha-horizontal bg-laranja" style="display: none;"></div>
+        <div
+          class="barrinha-horizontal bg-laranja"
+          style="display: none;"
+        ></div>
       </div>
       <!-- Gráfico de  casos e mortes por sexo -->
+      <div class="grupo-aba">
+        <button id="aba-grafico-pi-sexo" class="botao-aba">
+          <p>Sexo</p>
+        </button>
+        <div
+          class="barrinha-horizontal bg-amarelo"
+          style="display: none;"
+        ></div>
+      </div>
     </div>
   </div>
 
@@ -174,7 +186,10 @@
         <button id="aba-grafico-br-obitos-acumulados" class="botao-aba">
           <p>Óbitos Acumulados</p>
         </button>
-        <div class="barrinha-horizontal bg-vermelho" style="display: none;"></div>
+        <div
+          class="barrinha-horizontal bg-vermelho"
+          style="display: none;"
+        ></div>
       </div>
       <div class="grupo-aba">
         <button id="aba-grafico-br-novos-obitos" class="botao-aba">
@@ -187,10 +202,15 @@
 
   <div id="grafico-br-obitos-acumulados" class="card" componente-brasil>
     <header class="card-cabecalho">
-      <h3 class="card-titulo">Óbitos acumulados de COVID-19 por data de notificação</h3>
+      <h3 class="card-titulo">
+        Óbitos acumulados de COVID-19 por data de notificação
+      </h3>
     </header>
     <div class="card-corpo">
-      <canvas id="mortesPorEstado" style="display: block; width: 100px; height: 45px;"></canvas>
+      <canvas
+        id="mortesPorEstado"
+        style="display: block; width: 100px; height: 45px;"
+      ></canvas>
     </div>
     <footer class="card-rodape">
       <p>
@@ -201,10 +221,15 @@
 
   <div id="grafico-br-confirmados" class="card" componente-brasil default>
     <header class="card-cabecalho">
-      <h3 class="card-titulo">Casos novos de COVID-19 por data de notificação</h3>
+      <h3 class="card-titulo">
+        Casos novos de COVID-19 por data de notificação
+      </h3>
     </header>
     <div class="card-corpo">
-      <canvas id="novosCasosPorEstado" style="display: block; width: 100px; height: 45px;"></canvas>
+      <canvas
+        id="novosCasosPorEstado"
+        style="display: block; width: 100px; height: 45px;"
+      ></canvas>
     </div>
     <footer class="card-rodape">
       <p>
@@ -215,10 +240,15 @@
 
   <div id="grafico-br-novos-obitos" class="card" componente-brasil>
     <header class="card-cabecalho">
-      <h3 class="card-titulo">Novos óbitos de COVID-19 por data de notificação</h3>
+      <h3 class="card-titulo">
+        Novos óbitos de COVID-19 por data de notificação
+      </h3>
     </header>
     <div class="card-corpo">
-      <canvas id="novasMortesPorEstado" style="display: block; width: 100px; height: 45px;"></canvas>
+      <canvas
+        id="novasMortesPorEstado"
+        style="display: block; width: 100px; height: 45px;"
+      ></canvas>
     </div>
     <footer class="card-rodape">
       <p>
@@ -229,10 +259,15 @@
 
   <div id="grafico-pi-confirmados" class="card" componente-piaui default>
     <header class="card-cabecalho">
-      <h3 class="card-titulo">Casos acumulados de COVID-19 por data de notificação</h3>
+      <h3 class="card-titulo">
+        Casos acumulados de COVID-19 por data de notificação
+      </h3>
     </header>
     <div class="card-corpo">
-      <canvas id="casosConfirmados" style="display: block; width: 100px; height: 45px;"></canvas>
+      <canvas
+        id="casosConfirmados"
+        style="display: block; width: 100px; height: 45px;"
+      ></canvas>
     </div>
     <footer class="card-rodape">
       <p>
@@ -243,10 +278,15 @@
 
   <div id="grafico-pi-obitos" class="card" componente-piaui>
     <header class="card-cabecalho">
-      <h3 class="card-titulo">Óbitos acumulados de COVID-19 por data de notificação</h3>
+      <h3 class="card-titulo">
+        Óbitos acumulados de COVID-19 por data de notificação
+      </h3>
     </header>
     <div class="card-corpo">
-      <canvas id="historicoMortes" style="display: block; width: 100px; height: 45px;"></canvas>
+      <canvas
+        id="historicoMortes"
+        style="display: block; width: 100px; height: 45px;"
+      ></canvas>
     </div>
     <footer class="card-rodape">
       <p>
@@ -257,10 +297,15 @@
 
   <div id="grafico-pi-novos-casos" class="card" componente-piaui>
     <header class="card-cabecalho">
-      <h3 class="card-titulo">Casos novos de COVID-19 por data de notificação</h3>
+      <h3 class="card-titulo">
+        Casos novos de COVID-19 por data de notificação
+      </h3>
     </header>
     <div class="card-corpo">
-      <canvas id="novosCasos" style="display: block; width: 100px; height: 45px;"></canvas>
+      <canvas
+        id="novosCasos"
+        style="display: block; width: 100px; height: 45px;"
+      ></canvas>
     </div>
     <footer class="card-rodape">
       <p>
@@ -274,7 +319,10 @@
       <h3 class="card-titulo">Comorbidades</h3>
     </header>
     <div class="card-corpo">
-      <canvas id="comorbidades" style="display: block; width: 100px; height: 45px;"></canvas>
+      <canvas
+        id="comorbidades"
+        style="display: block; width: 100px; height: 45px;"
+      ></canvas>
     </div>
     <footer class="card-rodape">
       <p>
@@ -283,6 +331,40 @@
     </footer>
   </div>
 
+  <!-- Container com os gráficos de Pizza -->
+  <div class="container-graficos-pizza" componente-piaui>
+    <div class="conteudo-graficos-pizza">
+      <div id="grafico-pi-sexo-confirmados" class="card-pizza">
+        <div class="card-cabecalho">
+          <h3 class="card-titulo">Confirmados por sexo</h3>
+        </div>
+        <div class="card-pizza-corpo">
+          <canvas
+          id="confSexo"
+          style="display: block; width: 70px; height: 55px;"
+          ></canvas>
+        </div>
+        <div class="card-pizza-rodape">
+          <p>Fonte: Sesapi</p>
+        </div>
+      </div>
+
+      <div id="grafico-pi-sexo-mortes" class="card-pizza">
+        <div class="card-cabecalho">
+          <h3 class="card-titulo">Mortes por sexo</h3>
+        </div>
+        <div class="card-pizza-corpo">
+          <canvas
+          id="obtSexo"
+          style="display: block; width: 70px; height: 55px;"
+          ></canvas>
+        </div>
+        <div class="card-pizza-rodape">
+          <p>Fonte: Sesapi</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer class="rodape container-centralizado">
@@ -291,96 +373,140 @@
       <h3>Colaboradores</h3>
     </div>
     <div class="colaboradores-conteudo">
-      <a href="https://github.com/rogeriosilva-ifpi" class="colaborador" target="_blank">
+      <a
+        href="https://github.com/rogeriosilva-ifpi"
+        class="colaborador"
+        target="_blank"
+      >
         <img
           src="https://avatars0.githubusercontent.com/u/64442407?s=460&u=8924de9441fbffd2ca9021ad67248e8d5033acbe&v=4"
-          alt="Rogério Silva">
+          alt="Rogério Silva"
+        />
         <div>
           <h3>Rogério Silva</h3>
           <p>rogeriosilva-ifpi</p>
         </div>
       </a>
 
-      <a href="https://github.com/felipeifpi" class="colaborador" target="_blank">
-        <img src="https://avatars1.githubusercontent.com/u/64698489?s=460&v=4" alt="Felipe Dantas">
+      <a
+        href="https://github.com/felipeifpi"
+        class="colaborador"
+        target="_blank"
+      >
+        <img
+          src="https://avatars1.githubusercontent.com/u/64698489?s=460&v=4"
+          alt="Felipe Dantas"
+        />
         <div>
           <h3>Felipe Dantas</h3>
           <p>felipeifpi</p>
         </div>
       </a>
 
-      <a href="https://github.com/LuisHenrique01" class="colaborador" target="_blank">
+      <a
+        href="https://github.com/LuisHenrique01"
+        class="colaborador"
+        target="_blank"
+      >
         <img
           src="https://avatars0.githubusercontent.com/u/48893843?s=460&u=0ae91e258e251405eb1ec8f8b101f6cdbf6b489a&v=4"
-          alt="Luis Henrique">
+          alt="Luis Henrique"
+        />
         <div>
           <h3>Luis Henrique</h3>
           <p>LuisHenrique01</p>
         </div>
       </a>
 
-      <a href="https://github.com/marcosv2468" class="colaborador" target="_blank">
+      <a
+        href="https://github.com/marcosv2468"
+        class="colaborador"
+        target="_blank"
+      >
         <img
           src="https://avatars2.githubusercontent.com/u/28361577?s=460&u=89a6c19069302bffe9b76a4cc7c6576403ff7aef&v=4"
-          alt="Marcos Vinícius">
+          alt="Marcos Vinícius"
+        />
         <div>
           <h3>Marcos Vinícius</h3>
           <p>marcosv2468</p>
         </div>
       </a>
 
-      <a href="https://github.com/webalysson" class="colaborador" target="_blank">
+      <a
+        href="https://github.com/webalysson"
+        class="colaborador"
+        target="_blank"
+      >
         <img
           src="https://avatars1.githubusercontent.com/u/19244879?s=460&u=97b7b184b9bbd3fb8c4e29b58c451fbff2bc83cc&v=4"
-          alt="Francisco Alysson">
+          alt="Francisco Alysson"
+        />
         <div>
           <h3>Francisco Alysson</h3>
           <p>webalysson</p>
         </div>
       </a>
 
-      <a href="https://github.com/DarknessRdg" class="colaborador" target="_blank">
+      <a
+        href="https://github.com/DarknessRdg"
+        class="colaborador"
+        target="_blank"
+      >
         <img
           src="https://avatars2.githubusercontent.com/u/38518014?s=460&u=c676e19dd4d027a1df90e4121674660bceef789f&v=4"
-          alt="Luan Rodrigues">
+          alt="Luan Rodrigues"
+        />
         <div>
           <h3>Luan Rodrigues</h3>
           <p>DarknessRdg</p>
         </div>
       </a>
 
-      <a href="https://github.com/RomuloBarrosPI" class="colaborador" target="_blank">
+      <a
+        href="https://github.com/RomuloBarrosPI"
+        class="colaborador"
+        target="_blank"
+      >
         <img
           src="https://avatars3.githubusercontent.com/u/33790246?s=460&u=9717aacf3d5fe18296bd3b94efa5228304789ce9&v=4"
-          alt="Rômulo Oliveira">
+          alt="Rômulo Oliveira"
+        />
         <div>
           <h3>Rômulo Oliveira</h3>
           <p>RomuloBarrosPI</p>
         </div>
       </a>
-
     </div>
 
     <div class="colaboradores-rodape">
-      <a href="https://github.com/IFPiaui/covid19-map" target="_blank" class="botao-github">
+      <a
+        href="https://github.com/IFPiaui/covid19-map"
+        target="_blank"
+        class="botao-github"
+      >
         <div class="conteudo-botao-github">
-          <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
-            width="32" aria-hidden="true">
-            <path fill-rule="evenodd"
-              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-            </path>
+          <svg
+            class="octicon octicon-mark-github v-align-middle"
+            height="32"
+            viewBox="0 0 16 16"
+            version="1.1"
+            width="32"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            ></path>
           </svg>
           <p>Acesse o projeto completo</p>
         </div>
       </a>
     </div>
-    
   </div>
 </footer>
 
-{% endblock content %}
-
-{% block maps %}
+{% endblock content %} {% block maps %}
 <script>
   var dados_sesapi = JSON.parse('{{ dados_sesapi | safe }}');
 </script>
@@ -392,9 +518,7 @@
     {% endfor %}
   ];
 </script>
-{% endblock maps %}
-
-{% block charts %}
+{% endblock maps %} {% block charts %}
 <script>
   var datasCasos = [];
   var valoresCasos = [];
